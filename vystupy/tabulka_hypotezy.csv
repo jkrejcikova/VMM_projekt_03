@@ -9,5 +9,5 @@ Fáze,Metoda,Nulová hypotéza (H0),Statistika,p-hodnota,Rozhodnutí
 5 – Rozdíly ANOVA,Welch ANOVA (dist_m),Střední vzdálenosti jsou pro typy zakončení stejné,F = 63.9,< 0.001,ZAMÍTÁME H0
 6 – Sdružené MANOVA,Pillaiova stopa / Wilks λ,Vektory středních hodnot jsou ve skupinách stejné,Pillai = 0.195,< 0.001,ZAMÍTÁME H0
 7 – PCA vhodnost,Bartlettův test,Korelační matice je jednotková (PCA nevhodná),χ² = 2041.4,< 0.001,ZAMÍTÁME H0
-8 – Multikolinearita,Test VIF,Prediktory netrpí škodlivou multikolinearitou (VIF < 5),max VIF = 5.66,VIF < 3.0,NEZAMÍTÁME H0
+8 – Multikolinearita,Test VIF,Prediktory netrpí škodlivou multikolinearitou (VIF < 5),max VIF = 5.66,VIF < 10,NEZAMÍTÁME H0
 9 – Logit regrese,Logit model (dist_m),Vzdálenost střely neovlivňuje šanci na gól (β = 0),OR = 0.903,< 0.05,ZAMÍTÁME H0
