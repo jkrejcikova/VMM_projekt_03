@@ -1,0 +1,44 @@
+Faktor,Varianta,Kategorie,Počet střel (n),Počet gólů,Podíl gólů (%),Chí-kvadrát,Stupně volnosti,p-hodnota,Buněk oček. < 5,Předpoklad testu
+Typ zakončení,Původní (všechny 4),Pravá noha,286,27,"9,4","2,84",3,"0,418","1 z 8 (12,5 %)",Splněn (<= 20 %)
+Typ zakončení,Původní (všechny 4),Levá noha,272,20,"7,4","2,84",3,"0,418","1 z 8 (12,5 %)",Splněn (<= 20 %)
+Typ zakončení,Původní (všechny 4),Neznámé,129,14,"10,9","2,84",3,"0,418","1 z 8 (12,5 %)",Splněn (<= 20 %)
+Typ zakončení,Původní (všechny 4),Hlavou,48,2,"4,2","2,84",3,"0,418","1 z 8 (12,5 %)",Splněn (<= 20 %)
+Typ zakončení,Upravená (3 hlavní),Pravá noha,286,27,"9,4","1,89",2,"0,388","1 z 6 (16,7 %)",Splněn (<= 20 %)
+Typ zakončení,Upravená (3 hlavní),Levá noha,272,20,"7,4","1,89",2,"0,388","1 z 6 (16,7 %)",Splněn (<= 20 %)
+Typ zakončení,Upravená (3 hlavní),Hlavou,48,2,"4,2","1,89",2,"0,388","1 z 6 (16,7 %)",Splněn (<= 20 %)
+Herní situace,Původní (včetně penalt),Ze hry,575,42,"7,3","19,00",4,"< 0,001","3 z 10 (30,0 %)","Nesplněn (> 20 %, orientační)"
+Herní situace,Původní (včetně penalt),Rohový kop,67,10,"14,9","19,00",4,"< 0,001","3 z 10 (30,0 %)","Nesplněn (> 20 %, orientační)"
+Herní situace,Původní (včetně penalt),Přímý kop,48,3,"6,2","19,00",4,"< 0,001","3 z 10 (30,0 %)","Nesplněn (> 20 %, orientační)"
+Herní situace,Původní (včetně penalt),Standardka,39,5,"12,8","19,00",4,"< 0,001","3 z 10 (30,0 %)","Nesplněn (> 20 %, orientační)"
+Herní situace,Původní (včetně penalt),Penalta,6,3,"50,0","19,00",4,"< 0,001","3 z 10 (30,0 %)","Nesplněn (> 20 %, orientační)"
+Herní situace,Upravená (bez penalt),Ze hry,575,42,"7,3","5,97",3,"0,113","2 z 8 (25,0 %)","Nesplněn (> 20 %, orientační)"
+Herní situace,Upravená (bez penalt),Rohový kop,67,10,"14,9","5,97",3,"0,113","2 z 8 (25,0 %)","Nesplněn (> 20 %, orientační)"
+Herní situace,Upravená (bez penalt),Přímý kop,48,3,"6,2","5,97",3,"0,113","2 z 8 (25,0 %)","Nesplněn (> 20 %, orientační)"
+Herní situace,Upravená (bez penalt),Standardka,39,5,"12,8","5,97",3,"0,113","2 z 8 (25,0 %)","Nesplněn (> 20 %, orientační)"
+Předchozí akce (lastAction),Původní (14 kategorií),Přihrávka,313,22,"7,0","16,30",13,"0,233","10 z 28 (35,7 %)","Nesplněn (> 20 %, orientační)"
+Předchozí akce (lastAction),Původní (14 kategorií),Klička/Souboj,68,3,"4,4","16,30",13,"0,233","10 z 28 (35,7 %)","Nesplněn (> 20 %, orientační)"
+Předchozí akce (lastAction),Původní (14 kategorií),Centr,67,10,"14,9","16,30",13,"0,233","10 z 28 (35,7 %)","Nesplněn (> 20 %, orientační)"
+Předchozí akce (lastAction),Původní (14 kategorií),Žádná/Neznámá,61,8,"13,1","16,30",13,"0,233","10 z 28 (35,7 %)","Nesplněn (> 20 %, orientační)"
+Předchozí akce (lastAction),Původní (14 kategorií),Standardka,54,6,"11,1","16,30",13,"0,233","10 z 28 (35,7 %)","Nesplněn (> 20 %, orientační)"
+Předchozí akce (lastAction),Původní (14 kategorií),Vzdušný souboj,47,3,"6,4","16,30",13,"0,233","10 z 28 (35,7 %)","Nesplněn (> 20 %, orientační)"
+Předchozí akce (lastAction),Původní (14 kategorií),Oblouček,29,2,"6,9","16,30",13,"0,233","10 z 28 (35,7 %)","Nesplněn (> 20 %, orientační)"
+Předchozí akce (lastAction),Původní (14 kategorií),Odražený míč,24,4,"16,7","16,30",13,"0,233","10 z 28 (35,7 %)","Nesplněn (> 20 %, orientační)"
+Předchozí akce (lastAction),Původní (14 kategorií),Zisk míče,16,0,"0,0","16,30",13,"0,233","10 z 28 (35,7 %)","Nesplněn (> 20 %, orientační)"
+Předchozí akce (lastAction),Původní (14 kategorií),Dotek,15,3,"20,0","16,30",13,"0,233","10 z 28 (35,7 %)","Nesplněn (> 20 %, orientační)"
+Předchozí akce (lastAction),Původní (14 kategorií),Hlavička,12,1,"8,3","16,30",13,"0,233","10 z 28 (35,7 %)","Nesplněn (> 20 %, orientační)"
+Předchozí akce (lastAction),Původní (14 kategorií),Přiklepnutí,11,0,"0,0","16,30",13,"0,233","10 z 28 (35,7 %)","Nesplněn (> 20 %, orientační)"
+Předchozí akce (lastAction),Původní (14 kategorií),Ostatní,9,0,"0,0","16,30",13,"0,233","10 z 28 (35,7 %)","Nesplněn (> 20 %, orientační)"
+Předchozí akce (lastAction),Původní (14 kategorií),Kolmice,9,1,"11,1","16,30",13,"0,233","10 z 28 (35,7 %)","Nesplněn (> 20 %, orientační)"
+Předchozí akce (lastAction),Upravená (sloučeno < 15 do Ostatní),Přihrávka,313,22,"7,0","15,07",10,"0,130","7 z 22 (31,8 %)","Nesplněn (> 20 %, orientační)"
+Předchozí akce (lastAction),Upravená (sloučeno < 15 do Ostatní),Klička/Souboj,68,3,"4,4","15,07",10,"0,130","7 z 22 (31,8 %)","Nesplněn (> 20 %, orientační)"
+Předchozí akce (lastAction),Upravená (sloučeno < 15 do Ostatní),Centr,67,10,"14,9","15,07",10,"0,130","7 z 22 (31,8 %)","Nesplněn (> 20 %, orientační)"
+Předchozí akce (lastAction),Upravená (sloučeno < 15 do Ostatní),Žádná/Neznámá,61,8,"13,1","15,07",10,"0,130","7 z 22 (31,8 %)","Nesplněn (> 20 %, orientační)"
+Předchozí akce (lastAction),Upravená (sloučeno < 15 do Ostatní),Standardka,54,6,"11,1","15,07",10,"0,130","7 z 22 (31,8 %)","Nesplněn (> 20 %, orientační)"
+Předchozí akce (lastAction),Upravená (sloučeno < 15 do Ostatní),Vzdušný souboj,47,3,"6,4","15,07",10,"0,130","7 z 22 (31,8 %)","Nesplněn (> 20 %, orientační)"
+Předchozí akce (lastAction),Upravená (sloučeno < 15 do Ostatní),Ostatní,41,2,"4,9","15,07",10,"0,130","7 z 22 (31,8 %)","Nesplněn (> 20 %, orientační)"
+Předchozí akce (lastAction),Upravená (sloučeno < 15 do Ostatní),Oblouček,29,2,"6,9","15,07",10,"0,130","7 z 22 (31,8 %)","Nesplněn (> 20 %, orientační)"
+Předchozí akce (lastAction),Upravená (sloučeno < 15 do Ostatní),Odražený míč,24,4,"16,7","15,07",10,"0,130","7 z 22 (31,8 %)","Nesplněn (> 20 %, orientační)"
+Předchozí akce (lastAction),Upravená (sloučeno < 15 do Ostatní),Zisk míče,16,0,"0,0","15,07",10,"0,130","7 z 22 (31,8 %)","Nesplněn (> 20 %, orientační)"
+Předchozí akce (lastAction),Upravená (sloučeno < 15 do Ostatní),Dotek,15,3,"20,0","15,07",10,"0,130","7 z 22 (31,8 %)","Nesplněn (> 20 %, orientační)"
+Asistence u střely,Původní,S asistencí,559,48,"8,6","0,00",1,"1,000","0 z 4 (0,0 %)",Splněn (<= 20 %)
+Asistence u střely,Původní,Bez asistence,176,15,"8,5","0,00",1,"1,000","0 z 4 (0,0 %)",Splněn (<= 20 %)

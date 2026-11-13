@@ -1,0 +1,37 @@
+=============================================================================
+SOUHRNNÁ ZPRÁVA: PŘEDZPRACOVÁNÍ DAT STŘELECKÉ ÚSPĚŠNOSTI (PREMIER LEAGUE)
+=============================================================================
+1. Počáteční stav datové sady:
+   - Zdrojový soubor:             shots_outcome_Final.csv
+   - Počáteční počet záznamů:     1000 střel
+
+2. Přehled vyřazených záznamů:
+   - Vlastní góly (OwnGoal):      2 střel (neodpovídají útočnému záměru)
+   - Chybějící souřadnice X či Y: 263 střel (uloženo do shots_missing_xy.csv)
+   - Odlehlé hodnoty (3-sigma):   0 střel (pravidlo 3-sigma zrušeno, platné góly zachovány)
+   - Neplatné / chybné hodnoty:   0 střel (žádné hodnoty mimo platný definiční obor)
+   -------------------------------------------------------------------------
+   - Celkem vyřazeno záznamů:     265 střel (26.5%)
+
+3. Finální analyzovaný vzorek (clean_shots.csv):
+   - Konečný počet střel:         735
+   - Počet vstřelených gólů:      63 (8.57%)
+   - Z toho pokutových kopů:      6 (3 gólů)
+   - Střely s asistencí:          559 (76.1%)
+
+4. Geometrické veličiny (reálné hřiště 105 × 68 m, branka 7,32 m):
+   - Vzdálenost dist_m:           průměr 19.72 m (medián 19.98 m, rozsah 2.84 až 38.12 m)
+   - Úhel angle_deg:              průměr 21.30° (medián 16.87°, rozsah 6.48° až 104.47°)
+
+5. Odstraněné sloupce:
+   - Identifikátory:              id, match_id, player_id (bez statistického významu)
+   - Data leakage:                h_goals, a_goals (konečné skóre po 90 minutách)
+
+6. Seznam výstupních sloupců (22 proměnných):
+   minute, result, goal, X, Y, x_m, y_m, dist_m, angle_deg, xG, player, h_a, situation, is_penalty, shotType, lastAction, player_assisted, has_assist, year, date, h_team, a_team
+
+7. Metodická poznámka k xG:
+   - Sloupec xG byl v datasetu ponechán, ale představuje výstup cizího modelu.
+   - V navazující statistické analýze (logit, PCA, shlukování) nesmí vystupovat
+     jako nezávislá vysvětlující proměnná, slouží pouze jako externí srovnávací benchmark.
+=============================================================================

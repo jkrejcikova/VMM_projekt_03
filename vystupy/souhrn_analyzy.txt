@@ -1,0 +1,118 @@
+=============================================================================
+VÝSLEDKY STATISTICKÉ ANALÝZY VMM: FAKTORY STŘELECKÉ ÚSPĚŠNOSTI
+=============================================================================
+
+1. SEZNAM POUŽITÝCH KNIHOVEN A FUNKCÍ (PRIORITA ZE CVIČENÍ):
+   - scipy.stats:
+     * shapiro (cviceni_01): jednorozměrná normalita spojitých proměnných.
+       Doplňující poznámka: Při rozsahu výběru n = 735 má Shapiro-Wilkův test
+       velmi vysokou sílu a zamítá nulovou hypotézu normality i při mírné odchylce;
+       Q-Q graf ukazuje, že odchylky od normality nastávají především v koncových
+       kvantilech (těžší chvosty), zatímco střední část rozdělení je relativně symetrická.
+     * levene (cviceni_03): test shody rozptylů mezi skupinami zakončení.
+     * ttest_ind s equal_var=False: Welchův dvouvýběrový t-test pro post-hoc porovnání.
+     * spearmanr: pořadová korelační analýza.
+     * chi2_contingency: testy nezávislosti v kontingenčních tabulkách faktorů včetně kontroly
+       očekávaných četností buněk.
+   - scipy.cluster.hierarchy:
+     * linkage, dendrogram, fcluster: hierarchické shlukování Wardovou metodou.
+   - statsmodels.stats.oneway.anova_oneway (cviceni_03):
+     * Welchova ANOVA (use_var='unequal') pro nestejné rozptyly.
+     * Klasická jednofaktorová ANOVA (use_var='equal') pro metodické srovnání.
+   - statsmodels.multivariate.manova.MANOVA (cviceni_03):
+     * Sdružené porovnání geometrických proměnných [dist_m, angle_deg] dle shotType.
+   - statsmodels.api.Logit:
+     * Multivariabilní binární logistická regrese pro poměry šancí (OR) a intervaly spolehlivosti.
+   - sklearn (cviceni_04, cviceni_06):
+     * StandardScaler: standardizace veličin před PCA, t-SNE a shlukováním.
+     * PCA: rozklad na hlavní komponenty a faktorové zátěže L = V * sqrt(λ).
+     * TSNE (perplexity=30): nelineární dvourozměrná projekce dat.
+     * KMeans & silhouette_score: k-means shlukování a odůvodnění počtu shluků.
+     * roc_curve & auc: vyhodnocení diskriminační schopnosti (in-sample, křížová validace, xG).
+   - ODSTRANĚNÍ KNIHOVNY PINGOUIN:
+     * Pingouin byl ze skriptu kompletně odstraněn.
+
+2. ZAJÍMAVÉ ZJIŠTĚNÍ: PARADOX ZAKONČENÍ HLAVOU
+   Samotný typ zakončení není v bivariačním pohledu statisticky významný
+   (chí-kvadrát test χ² = 2,84, df = 3, p = 0,418;
+   pro 3 hlavní kategorie χ² = 1,89, df = 2, p = 0,388).
+   Úspěšnost střel hlavou ve vzorku činí 4,2 % (2 góly ze 48 střel), u pravé nohy 9,4 % a u levé nohy 8,8 %.
+   Z dat plyne, že hlavou se střílí z podstatně menší vzdálenosti než u ostatních zakončení:
+   - Střely hlavou (n = 48): průměrná vzdálenost = 10,96 m, medián = 10,94 m.
+   - Ostatní zakončení (n = 687): průměrná vzdálenost = 20,34 m, medián = 20,79 m.
+   Po zohlednění vzdálenosti a úhlu je zakončení hlavou v multivariabilním logit modelu statisticky méně úspěšné než pravou nohou
+   (OR = 0,10, 95% IS: [0,022; 0,506], p = 0,005).
+   Tento výsledek však stojí na malém počtu střel (48 střel hlavou, pouze 2 góly) a je orientační.
+
+3. LOGISTICKÁ REGRESE BEZ xG A BEZ PENALT (n = 729 střel ze hry, 60 gólů):
+   - Upozornění k velikosti vzorku:
+     Model odhaduje 9 parametrů (konstanta + 8 prediktorů) na 60 pozorovaných gólů ze hry.
+     Poměr činí zhruba 6,7 gólu na parametr (pravidlo EPV doporučuje minimálně 10 až 15).
+   - Odhady poměrů šancí (Odds Ratios, 95% intervaly spolehlivosti):
+     * Vzdálenost od branky (přepočet na 5 m): OR = 0,6174 [95% CI: 0,4267; 0,8932], p = 0,0105
+       -> Při stejném střeleckém úhlu, typu zakončení a situaci každých dalších 5 metrů
+          od branky snižuje šanci na gól o cca 38,3 %.
+     * Střelecký úhel (přepočet na 10°): OR = 1,3724 [95% CI: 1,0244; 1,8387], p = 0,0339
+       -> Při stejné vzdálenosti, typu zakončení a situaci každých dalších 10 stupňů
+          zorného úhlu zvyšuje šanci na gól o cca 37,2 %.
+     * Zakončení hlavou (shotType_Head): OR = 0,1050 [95% CI: 0,0218; 0,5055], p = 0,0049 (orientační, n = 48, 2 góly)
+     * Ostatní prediktory (statisticky neprůkazné při α = 0,05):
+       - Zakončení levou nohou: OR = 0,7496, p = 0,397.
+       - Neznámé zakončení: OR = 0,7709, p = 0,524.
+       - Přímý volný kop: OR = 2,6865, p = 0,153.
+       - Rohový kop: OR = 1,7935, p = 0,174.
+       - Standardní situace: OR = 1,0090, p = 0,988.
+   - Logistická křivka a srovnání v 5m intervalech:
+     Křivka pro střely z podélné osy hřiště (y = 34 m) probíhá nad pozorovanými podíly i nad průměrem předpovědí modelu,
+     protože předpokládá ideální střelecký úhel přímo před brankou, zatímco skutečné střely v daných intervalech
+     zahrnují i střely z ostrých bočních úhlů s menším střeleckým úhlem.
+     Číselné srovnání v intervalech (pozorováno vs. průměr předpovědi modelu pro skutečné střely vs. n):
+     * Interval [0, 5 m):  n = 8, pozorováno 50,0 % | průměr předpovědi 60,4 % (těžiště 4,38 m, model z osy 67,6 %; málo dat)
+     * Interval [5, 10 m): n = 58, pozorováno 31,0 % | průměr předpovědi 25,0 % (těžiště 7,75 m, model z osy 37,5 %)
+     * Interval [10, 15 m): n = 129, pozorováno 11,6 % | průměr předpovědi 11,3 % (těžiště 12,72 m, model z osy 17,1 %)
+     * Interval [15, 20 m): n = 167, pozorováno 4,8 % | průměr předpovědi 7,3 % (těžiště 17,44 m, model z osy 9,1 %)
+     * Interval [20, 25 m): n = 168, pozorováno 4,2 % | průměr předpovědi 4,6 % (těžiště 22,69 m, model z osy 4,9 %)
+     * Interval [25, 30 m): n = 161, pozorováno 4,3 % | průměr předpovědi 3,3 % (těžiště 27,11 m, model z osy 2,9 %)
+     * Interval [30, 35 m): n = 36, pozorováno 0,0 % | průměr předpovědi 2,3 % (těžiště 31,56 m, model z osy 1,8 %)
+
+4. CHÍ-KVADRÁT TESTY FAKTORŮ A KONTROLA PŘEDPOKLADŮ (OČEKÁVANÉ ČETNOSTI):
+   - Typ zakončení:
+     * Původní 4 kategorie: χ² = 2,84, df = 3, p = 0,418. Buněk s očekávanou četností < 5: 1 z 8 (12,5 %) -> předpoklad splněn (<= 20 %).
+     * 3 hlavní kategorie: χ² = 1,89, df = 2, p = 0,388. Buněk < 5: 1 z 6 (16,7 %) -> předpoklad splněn.
+   - Herní situace:
+     * Původní (včetně penalt): χ² = 19,00, df = 4, p < 0,001. Buněk < 5: 3 z 10 (30,0 %) -> předpoklad porušen (> 20 %).
+     * Upravená (BEZ penalt): χ² = 5,97, df = 3, p = 0,113. Buněk < 5: 2 z 8 (25,0 %) -> předpoklad není plně splněn (25 % > 20 %), výsledek je orientační. Po vyřazení penalt není vliv situace statisticky významný.
+   - Předchozí akce (lastAction):
+     * Původní (14 kategorií): χ² = 16,30, df = 13, p = 0,233. Buněk < 5: 10 z 28 (35,7 %) -> předpoklad porušen.
+     * Upravená (sloučeno < 15 do Ostatní): χ² = 15,07, df = 10, p = 0,130. Buněk < 5: 7 z 22 (31,8 %) -> předpoklad není plně splněn (31,8 % > 20 %), výsledek je orientační. Vliv předchozí akce není statisticky významný.
+   - Asistence u střely:
+     * χ² = 0,00, df = 1, p = 1,000. Buněk < 5: 0 z 4 (0,0 %). Vliv asistence není statisticky významný.
+
+5. DISKRIMINAČNÍ SCHOPNOST A BENCHMARK PROTI xG:
+   - Plocha pod ROC křivkou (AUC):
+     * Náš model (stratifikovaná 5-násobná validace): AUC = 0,7238
+     * Externí benchmark xG (Understat, n = 729):     AUC = 0,7372
+     * In-sample trénovací AUC činí 0,7643 (mírně optimistické z důvodu evaluace na trénovacích datech).
+   - Rozhodovací práh dle Youdenova indexu činí 0,085 (citlivost 70,0 %, specificita 77,4 %).
+   - Podíl gólů ve zkoumaném vzorku střel ze hry činí 8,2 % (60 gólů z 729 střel).
+
+6. JEDNOFAKTOROVÁ ANOVA A PÁROVÉ ROZDÍLY DLE ZAKONČENÍ:
+   - Dělení skupin podle proměnné: shotType (Typ zakončení).
+   - Skupiny: Pravá noha (n = 286), Levá noha (n = 272), Hlavou (n = 48).
+   - Levenův test: pro vzdálenost W = 15,552 (p < 0,001, heteroskedasticita), pro úhel W = 2,078 (p = 0,126).
+   - Welchova ANOVA: vzdálenost F = 176,87 (p < 0,001), úhel F = 50,09 (p < 0,001).
+   - Post-hoc párové testy (Welchovy t-testy s Bonferroniho korekcí):
+     * Pravá vs. Levá noha: rozdíl vzdáleností +0,96 m (p_adj = 0,232, nevýznamný).
+     * Pravá noha vs. Hlavou: rozdíl vzdáleností +9,93 m (p_adj < 0,001, vysoce významný).
+     * Levá noha vs. Hlavou: rozdíl vzdáleností +8,97 m (p_adj < 0,001, vysoce významný).
+
+7. REDUKCE DIMENZIONALITY A SHLUKOVÁNÍ:
+   - PCA na [dist_m, angle_deg, minute]:
+     * λ1 = 1,768 (58,8 %), λ2 = 0,998 (33,2 %), λ3 = 0,238 (100,0 % kumulativně).
+     * Zátěže PC1: dist_m = 0,939, angle_deg = -0,938.
+     * Zátěže PC2: minute = 0,997.
+   - K-means a Wardovo shlukování (k = 2, Silhouette score = 0,406):
+     * Shoda shlukování: 89,4 % (657 ze 735 střel).
+     * Shluk Vápno (n = 175): průměrná vzdálenost 10,6 m, úspěšnost gólů 21,1 %.
+     * Shluk Dálka (n = 560): průměrná vzdálenost 22,6 m, úspěšnost gólů 4,6 %.
+=============================================================================

@@ -1,0 +1,59 @@
+=============================================================================
+NAVRŽENÉ POPISKY POD GRAFY PRO PREZENTACI (VMM PROJEKT 04)
+Obsahuje všechny podrobné statistické hodnoty, testy a poznámky vyřazené z obrázků.
+=============================================================================
+
+01_mapa_strel.png
+Prostorové rozložení všech 735 střel na útočné polovině hřiště v reálných metrech. Vzorek obsahuje 63 gólů (8,6 %) a 672 neproměněných střel (91,4 %). Góly jsou soustředěny téměř výhradně v prostoru pokutového území v těsné blízkosti soupeřovy branky.
+
+01b_hist_xG.png
+Empirické rozdělení metrik očekávaných gólů (xG) vykazuje silné pravostranné sešikmení s mediánem 0,05 a průměrem 0,09. Naprostá většina střel má nízkou hodnotu očekávaného gólu pod 0,15, což odpovídá zakončení z větších vzdáleností nebo nevýhodných střeleckých úhlů.
+
+01c_kde_hriste.png
+2D jádrový odhad hustoty střelby (KDE) na útočné polovině hřiště bez umělých ořezů uvnitř hrací plochy. Zatímco neproměněné střely (modré vrstevnice) pokrývají široký prostor před pokutovým územím, góly (červené vrstevnice) tvoří kompaktní ohnisko přímo v prostoru před brankou (vzdálenost od branky pod 12 m a šířka 26 až 42 m).
+
+02_normalita_histogramy_qq.png
+Diagnostika jednorozměrné normality pro vzdálenost střel od branky pomocí histogramu s teoretickou normální křivkou a normálního Q-Q grafu. Shapiro-Wilkův test zamítá normalitu (W = 0,983, p < 0,001); odchylky od normálního rozdělení nastávají zejména v koncových kvantilech v důsledku sešikmení a přirozených hranic hrací plochy.
+
+03_korelacni_heatmapa.png
+Spearmanova pořadová korelační matice vybraných proměnných. Klíčovým vztahem je silná záporná nelineární vazba mezi vzdáleností od branky a střeleckým úhlem (r_s = -0,783, p < 0,001), zatímco minuta zápasu nevykazuje s ostatními veličinami statisticky významnou korelaci.
+
+03b_pairplot.png
+Párové rozptylové diagramy a jednorozměrné odhady hustot pro vzdálenost, střelecký úhel a minutu zápasu rozlišené podle výsledku střely. Proměněné střely (červeně) jsou koncentrovány v oblasti malých vzdáleností a velkých střeleckých úhlů, čas zápasu střeleckou úspěšnost vizuálně neovlivňuje.
+
+04_boxploty_shottype.png
+Porovnání vzdálenosti a střeleckého úhlu podle typu zakončení pro pravou nohu (n = 286), levou nohu (n = 272) a hlavičky (n = 48). Welchova jednofaktorová ANOVA potvrzuje statisticky vysoce významné rozdíly jak ve vzdálenosti (Welchovo F = 176,87, p < 0,001; Levene W = 15,55, p < 0,001), tak v úhlu (Welchovo F = 50,09, p < 0,001; Levene W = 2,08, p = 0,126).
+
+04b_posthoc_welch.png
+Párová porovnání typů zakončení pomocí Welchových t-testů s Bonferroniho korekcí p-hodnot ve formátu p (Bonferroni) a 95% intervaly spolehlivosti rozdílů průměrů. Zakončení hlavou se střílí z významně menší vzdálenosti než nohou (rozdíl oproti pravé noze +9,93 m, oproti levé +8,97 m, obojí p < 0,001), zatímco rozdíl mezi pravou a levou nohou činí pouze 0,96 m a není statisticky významný (p = 0,232).
+
+05_scree_plot.png
+Scree plot (graf úpatí) vlastních čísel z analýzy hlavních komponent (PCA) na proměnných vzdálenost, úhel a minuta zápasu. První komponenta vysvětluje 58,8 % celkového rozptylu (vlastní číslo λ1 = 1,768), druhá 33,2 % (λ2 = 0,998, kumulativně 92,1 %) a třetí 7,9 % (λ3 = 0,238, kumulativně 100,0 %); dle Kaiserova pravidla (λ > 1) postačuje první hlavní komponenta.
+
+05b_biplot_pca.png
+2D biplot prvních dvou hlavních komponent PCA (PC1 vysvětluje 58,8 %, PC2 33,2 % rozptylu). První komponenta představuje geometrickou osu (vzdálenost se zátěží +0,939 a úhel se zátěží -0,938 působí proti sobě), druhá komponenta odpovídá času zápasu (zátěž minuty +0,997); góly se shlukují v záporných hodnotách PC1 odpovídajících zakončení zblízka.
+
+05c_pca_zatezove.png
+Matice komponentních zátěží L = V · √λ (korelací původních proměnných s komponentami) pro vzdálenost, úhel a minutu zápasu. Potvrzuje ortogonální rozdělení na geometrický rozměr střelby v PC1 a časový průběh utkání v PC2.
+
+05d_tsne_strely.png
+Dvourozměrná nelineární projekce t-SNE na standardizovaných proměnných [vzdálenost, úhel, minuta] s perplexitou 30 obarvená (a) podle výsledku střely a (b) podle shluků K-means. Projekce slouží výhradně k vizuálnímu posouzení spojitosti datového prostoru; vzdálenosti mezi shluky v t-SNE nelze přímo geometricky interpretovat.
+
+06_dendrogram.png
+Diagnostika počtu shluků pomocí průměrného Silhouette score a dendrogram hierarchického shlukování Wardovou metodou s čárkovanou čarou řezu na výšce 34,4. Obě metody nezávisle identifikují jako optimální rozdělení dat do dvou přirozených shluků (nejvyšší Silhouette score 0,406).
+
+06b_mapa_shluku.png
+Prostorová lokalizace dvou shluků z K-means na útočné polovině hřiště. Shluk 'Vápno' (n = 175) má průměrnou vzdálenost 10,6 m a úspěšnost gólů 21,1 %, zatímco shluk 'Dálka' (n = 560) má průměrnou vzdálenost 22,6 m a úspěšnost pouze 4,6 %; shoda shlukování s Wardovou hierarchickou metodou činí 89,4 % (657 ze 735 střel).
+
+07_logisticka_krivka.png
+Srovnání pozorovaného podílu gólů (modré kosočtverce) a průměru předpovězených pravděpodobností logistického modelu pro skutečné střely (červené čtverce) v 5m intervalech. Modelová křivka pro střely z podélné osy hřiště (tenká čárkovaná čára, y = 34 m, referenční situace pravá noha ze hry) probíhá nad pozorovanými podíly i nad průměrem předpovědí, protože předpokládá maximální střelecký úhel přímo před brankou, zatímco reálné střely v intervalech zahrnují i střely z ostrých bočních úhlů s menším střeleckým úhlem. Číselné srovnání v intervalech (pozorováno vs. průměr předpovědi vs. n): [0, 5 m) 50,0 % vs. 60,4 % (n = 8, málo dat), [5, 10 m) 31,0 % vs. 25,0 % (n = 58), [10, 15 m) 11,6 % vs. 11,3 % (n = 129), [15, 20 m) 4,8 % vs. 7,3 % (n = 167), [20, 25 m) 4,2 % vs. 4,6 % (n = 168), [25, 30 m) 4,3 % vs. 3,3 % (n = 161) a [30, 35 m) 0,0 % vs. 2,3 % (n = 36).
+
+07_roc_krivka.png
+ROC křivky hodnotící diskriminační schopnost logistického modelu a nezávislého benchmarku očekávaných gólů (xG) na vzorku střel ze hry bez penalt (n = 729, 60 gólů, 8,2 %). Křížově validovaný model dosahuje AUC = 0,724 (in-sample trénovací AUC = 0,764 je mírně optimistické) a je plně srovnatelný s externí metrikou xG (AUC = 0,737); optimální rozhodovací práh stanovený Youdenovým indexem činí 0,085 (citlivost 70,0 %, specificita 68,9 %).
+
+07b_forest_plot.png
+Poměry šancí (OR) a jejich 95% intervaly spolehlivosti z multivariabilní logistické regrese bez penalt na logaritmické ose (0,1; 1; 10). Červeně jsou zobrazeny statisticky významné faktory při α = 0,05 (vzdálenost na 5 m: OR = 0,55, p < 0,001; úhel na 10°: OR = 1,28, p = 0,004; zakončení hlavou oproti pravé noze: OR = 0,11, 95% IS: [0,022; 0,506], p = 0,005); modře statisticky nevýznamné faktory (p ≥ 0,05). Z dat plyne, že hlavou se střílí z menší vzdálenosti než u ostatních zakončení (průměr 10,96 m, medián 10,94 m proti 20,34 m a 20,79 m); výsledek pro hlavičky však stojí na malém počtu střel (48 střel, 2 góly) a je orientační.
+
+08_podil_golu_faktory.png
+Podíl gólů podle typu zakončení a herní situace s vodorovnou referenční linií podílu gólů ve zkoumaném vzorku (8,6 %, n = 735); penalty (6 střel, 50,0 % gólů) a neznámé zakončení (129 střel, 7,0 % gólů) jsou z grafu vynechány pro zachování čitelnosti. Rozdíly v typu zakončení nejsou statisticky významné (χ² = 2,84, df = 3, p = 0,418; pro 3 hlavní typy χ² = 1,90, df = 2, p = 0,388); herní situace je v celém vzorku významná kvůli penaltám (χ² = 19,00, df = 4, p < 0,001), avšak po vyřazení penalt statistická významnost situace mizí (χ² = 5,97, df = 3, p = 0,113, přičemž 25 % buněk má očekávanou četnost < 5 a výsledek je orientační).
+=============================================================================
