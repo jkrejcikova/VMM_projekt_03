@@ -1,0 +1,15 @@
+﻿Proměnná / Metrika,Kategorie / Statistika,Vyřazené (bez X/Y),Ponechané (s X a Y),Poznámka
+Celkový počet,n,263,735,100 %
+Podíl gólů,Gól (1),27 (10.27%),63 (8.57%),"Rozdíl 1.7 p.b. (p = 0.41, nesignifikantní)"
+Herní minuta,Průměr ± SD,49.4 ± 27.0,50.0 ± 26.8,Téměř identické rozdělení
+Metrika xG,Průměr (Medián),0.096 (0.048),0.090 (0.045),Srovnatelná kvalita šancí
+Herní situace,OpenPlay,211 (80.2%),575 (78.2%),
+Herní situace,FromCorner,26 (9.9%),67 (9.1%),
+Herní situace,SetPiece,13 (4.9%),39 (5.3%),
+Herní situace,Penalty,0 (0.0%),6 (0.8%),
+Herní situace,DirectFreekick,13 (4.9%),48 (6.5%),
+Typ zakončení,RightFoot,98 (37.3%),286 (38.9%),
+Typ zakončení,LeftFoot,91 (34.6%),272 (37.0%),
+Typ zakončení,Head,24 (9.1%),48 (6.5%),
+Typ zakončení,Unknown,49 (18.6%),129 (17.6%),
+Typ zakončení,OtherBodyPart,1 (0.4%),0 (0.0%),

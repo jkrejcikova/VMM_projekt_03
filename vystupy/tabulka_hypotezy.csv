@@ -1,13 +1,17 @@
-Fáze,Metoda,Nulová hypotéza (H0),Statistika,p-hodnota,Rozhodnutí
-1 – Normalita 1D,Shapiro-Wilk (dist_m),Vzdálenost dist_m pochází z normálního rozdělení,W = 0.9836,< 0.001,ZAMÍTÁME H0
-1 – Normalita 1D,Shapiro-Wilk (xG),Metrika xG pochází z normálního rozdělení,W = 0.5433,< 0.001,ZAMÍTÁME H0
-1 – Normalita MV,Henze-Zirkler / Chí-kv.,"Vektor [dist_m, angle, xG] má vícerozměrnou normalitu",HZ = 53.105,< 0.001,ZAMÍTÁME H0
-2 – Rozptyly,Leveneho test,Rozptyly vzdálenosti jsou mezi skupinami zakončení shodné,L = 10.997,< 0.001,ZAMÍTÁME H0
-3 – Kovariance,Boxův M test,Kovarianční matice jsou mezi skupinami zakončení shodné,χ² = 125.3,< 0.001,ZAMÍTÁME H0
-4 – Závislost,Spearmanův test,Korelace mezi xG a dist_m je nulová (r = 0),r = -0.732,< 0.001,ZAMÍTÁME H0
-4 – Parciální kor.,Pingouin partial_corr,Korelace xG a angle_deg při fixování dist_m je nulová,r_p = -0.196,< 0.001,ZAMÍTÁME H0
-5 – Rozdíly ANOVA,Welch ANOVA (dist_m),Střední vzdálenosti jsou pro typy zakončení stejné,F = 63.9,< 0.001,ZAMÍTÁME H0
-6 – Sdružené MANOVA,Pillaiova stopa / Wilks λ,Vektory středních hodnot jsou ve skupinách stejné,Pillai = 0.195,< 0.001,ZAMÍTÁME H0
-7 – PCA vhodnost,Bartlettův test,Korelační matice je jednotková (PCA nevhodná),χ² = 2041.4,< 0.001,ZAMÍTÁME H0
-8 – Multikolinearita,Test VIF,Prediktory netrpí škodlivou multikolinearitou (VIF < 5),max VIF = 5.66,VIF < 10,NEZAMÍTÁME H0
-9 – Logit regrese,Logit model (dist_m),Vzdálenost střely neovlivňuje šanci na gól (β = 0),OR = 0.903,< 0.05,ZAMÍTÁME H0
+Fáze,Metoda,Nulová hypotéza (H0),Statistika,p-hodnota,Rozhodnutí (alpha=0.05)
+1 – Normalita,Shapiro-Wilkův test (dist_m),Vzdálenost dist_m má normální rozdělení,W = 0.9833,< 0.001,ZAMÍTÁME H0
+1 – Normalita,Shapiro-Wilkův test (angle_deg),Střelecký úhel angle_deg má normální rozdělení,W = 0.7344,< 0.001,ZAMÍTÁME H0
+1 – Normalita MV,Henze-Zirklerův test,"Vektor [dist_m, angle, xG] má vícerozměrné normální rozdělení",HZ = 68.281,< 0.001,ZAMÍTÁME H0
+2 – Homoskedasticita,Leveneho test rozptylů,Rozptyly vzdálenosti jsou mezi skupinami zakončení shodné,L = 14.860,< 0.001,ZAMÍTÁME H0
+2 – Kovariance,Boxův M test kovariancí,Kovarianční matice jsou mezi skupinami zakončení shodné,χ² = 132.4,< 0.001,ZAMÍTÁME H0
+3 – Závislost,Spearmanův test pořadové korelace,Korelace mezi vzdáleností dist_m a xG je nulová (r = 0),r = -0.740,< 0.001,ZAMÍTÁME H0
+3 – Parciální kor.,Pingouin parciální korelace,Parciální korelace xG a úhlu při kontrole vzdálenosti je nulová,r_p = 0.155,< 0.001,ZAMÍTÁME H0
+4 – Skupiny Welch,Welchova robustní ANOVA (dist_m),Střední vzdálenosti střel jsou pro typy zakončení stejné,F = 176.9,< 0.001,ZAMÍTÁME H0
+4 – Skupiny Neparam.,Kruskal-Wallisův test (dist_m),Distribuce vzdáleností jsou mezi typy zakončení shodné,H = 88.7,< 0.001,ZAMÍTÁME H0
+4 – Sdružené MANOVA,Pillaiova stopa / Wilks λ,"Sdružené vektory středních hodnot [dist, úhel] jsou shodné",Pillai = 0.185,< 0.001,ZAMÍTÁME H0
+4b – Hráči Kruskal,Kruskal-Wallisův test (xG dle hráčů),Distribuce kvality šancí xG je mezi všemi střelci shodná,H = 71.3,< 0.001,ZAMÍTÁME H0
+4b – Hráči Welch,Welchova ANOVA (xG dle hráčů),Střední hodnota xG je pro všechny střelce stejná,F = 26.9,< 0.001,ZAMÍTÁME H0
+5 – Vhodnost PCA,Bartlettův test sférickosti,Korelační matice je jednotková (proměnné jsou nekorelované),χ² = 1370.6,< 0.001,ZAMÍTÁME H0
+6 – Celkový Logit,Likelihood Ratio Test (LLR),Všechny koeficienty logistického modelu jsou nulové (β = 0),χ² = 69.7,< 0.001,ZAMÍTÁME H0
+6 – Vzdálenost Logit,Waldův test koeficientu (dist_m),Vzdálenost střely neovlivňuje logit šance na gól (β_dist = 0),OR = 0.918,0.0157,ZAMÍTÁME H0
+6 – Úhel Logit,Waldův test koeficientu (angle_deg),Střelecký úhel neovlivňuje logit šance na gól (β_angle = 0),OR = 1.037,0.0144,ZAMÍTÁME H0
