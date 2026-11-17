@@ -1,7 +1,7 @@
 # 01_predzpracovani.py
 
 """
-Semestrální projekt VMM – Střelecká úspěšnost (Premier League)
+Semestrální projekt VMM – Střelecká úspěšnost (střely z fotbalových lig)
 Skript 1: Předzpracování a očištění dat
 """
 

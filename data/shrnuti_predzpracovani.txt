@@ -1,5 +1,5 @@
 =============================================================================
-SOUHRNNÁ ZPRÁVA: PŘEDZPRACOVÁNÍ DAT STŘELECKÉ ÚSPĚŠNOSTI (PREMIER LEAGUE)
+SOUHRNNÁ ZPRÁVA: PŘEDZPRACOVÁNÍ DAT STŘELECKÉ ÚSPĚŠNOSTI (VÍCE FOTBALOVÝCH LIG)
 =============================================================================
 1. Počáteční stav datové sady:
    - Zdrojový soubor:             shots_outcome_Final.csv
@@ -8,7 +8,6 @@ SOUHRNNÁ ZPRÁVA: PŘEDZPRACOVÁNÍ DAT STŘELECKÉ ÚSPĚŠNOSTI (PREMIER LEAG
 2. Přehled vyřazených záznamů:
    - Vlastní góly (OwnGoal):      2 střel (neodpovídají útočnému záměru)
    - Chybějící souřadnice X či Y: 263 střel (uloženo do shots_missing_xy.csv)
-   - Odlehlé hodnoty (3-sigma):   0 střel (pravidlo 3-sigma zrušeno, platné góly zachovány)
    - Neplatné / chybné hodnoty:   0 střel (žádné hodnoty mimo platný definiční obor)
    -------------------------------------------------------------------------
    - Celkem vyřazeno záznamů:     265 střel (26.5%)

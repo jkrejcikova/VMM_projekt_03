@@ -1,0 +1,2 @@
+1) co s daty kde chybí x nebo y? 263 hodnot, nejde spocitat vzdalenost a uhel
+2) 

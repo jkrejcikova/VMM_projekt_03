@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Semestrální projekt VMM – Střelecká úspěšnost (Premier League)
+Semestrální projekt VMM – Střelecká úspěšnost (střely z fotbalových lig)
 Skript 2: Vícerozměrná statistická analýza a vizualizace
 """
 
@@ -117,7 +117,7 @@ def eda_a_prostorova_mapa(df):
                edgecolors='none', label=f'Nezakončeno gólem (n = {len(no_goals)})', zorder=3)
     ax.scatter(goals['x_m'], goals['y_m'], c='#d62728', s=90, alpha=0.90,
                edgecolors='#800000', linewidths=1.2, label=f'Gól (n = {len(goals)})', zorder=4)
-    ax.set_title(f'Prostorová mapa střel Premier League (n = {len(df)}, gólů: {len(goals)})', fontsize=15,
+    ax.set_title(f'Prostorová mapa střel (n = {len(df)}, gólů: {len(goals)})', fontsize=15,
                  fontweight='bold', pad=12)
     ax.legend(loc='upper left', frameon=True, framealpha=0.92, facecolor='white', edgecolor='#CCCCCC')
     uloz_graf('01_mapa_strel.png')
